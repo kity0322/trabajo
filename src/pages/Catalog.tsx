@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Clock, ListChecks, Users, Play, ShieldCheck, Eye, ArrowRight, CheckCircle2, LockKeyhole } from 'lucide-react'
+import { Clock, ListChecks, Users, Play, ShieldCheck, Eye, ArrowRight, LockKeyhole } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -164,7 +164,9 @@ export default function Catalog() {
                         <span className="flex items-center gap-1">
                           <ListChecks className="h-3.5 w-3.5" />{' '}
                           {esDocente
-                            ? buildExamQuestions(sim.area, sim.numPreguntas).filter((pregunta) => pregunta.area === usuario?.materia).length
+                            ? (sim.preguntas.length > 0 ? sim.preguntas : buildExamQuestions(sim.area, sim.numPreguntas)).filter(
+                                (pregunta) => pregunta.area === usuario?.materia
+                              ).length
                             : sim.numPreguntas}{' '}
                           preguntas
                         </span>

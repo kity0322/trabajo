@@ -74,7 +74,10 @@ export default function ExamRunner() {
   const preguntas = useMemo(
     () => {
       if (!simulacro) return []
-      const seleccion = buildExamQuestions(simulacro.area, simulacro.numPreguntas)
+      const seleccion =
+        simulacro.preguntas.length > 0
+          ? simulacro.preguntas
+          : buildExamQuestions(simulacro.area, simulacro.numPreguntas)
       return usuario?.rol === 'docente'
         ? seleccion.filter((pregunta) => pregunta.area === usuario.materia)
         : seleccion
