@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Poppins', system-ui, sans-serif;
+
+  --color-navy-50: #eef1f7;
+  --color-navy-100: #d6ddec;
+  --color-navy-200: #adbadb;
+  --color-navy-300: #7c8fc0;
+  --color-navy-400: #4a5f9e;
+  --color-navy-500: #2a3f77;
+  --color-navy-600: #1c2d5c;
+  --color-navy-700: #13214A;
+  --color-navy-800: #0e1836;
+  --color-navy-900: #090f24;
+
+  --color-gold-50: #fdf7e7;
+  --color-gold-100: #faecc0;
+  --color-gold-200: #f4d888;
+  --color-gold-300: #ecc255;
+  --color-gold-400: #e2b02f;
+  --color-gold-500: #D4A017;
+  --color-gold-600: #b78412;
+  --color-gold-700: #8f660f;
+  --color-gold-800: #6b4c0d;
+  --color-gold-900: #4d370a;
+
+  --color-wine-50: #fbeaea;
+  --color-wine-100: #f2c7c7;
+  --color-wine-200: #e29a9a;
+  --color-wine-300: #c96565;
+  --color-wine-400: #a63a3a;
+  --color-wine-500: #8B1E1E;
+  --color-wine-600: #781a1a;
+  --color-wine-700: #601515;
+  --color-wine-800: #481010;
+  --color-wine-900: #300b0b;
+
+  --color-surface: #F7F8FA;
+
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+@layer base {
+  * {
+    border-color: theme(--color-navy-100);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-surface text-navy-800 antialiased;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
